@@ -102,7 +102,7 @@ void handleWriteData()
   String dataStr = server.arg("data");
 
   if (sector < 1 || sector > 15 || block < 0 || block > 2) {
-    server.send(400, "application/json", "{\"error\":\"Invalid Sektor (1-15) or Block(0/1)\"}");
+    server.send(400, "application/json", "{\"error\":\"Invalid Sektor (1-15) or Block(0-2)\"}");
     isBusy = false;
     return;
   }
@@ -169,7 +169,7 @@ void handleReadData() {
   int block = server.arg("block").toInt();
 
   if (sector < 1 || sector > 15 || block < 0 || block > 2) {
-    server.send(400, "application/json", "{\"error\":\"Invalid Sektor (1-15) or Block(0/1)\"}");
+    server.send(400, "application/json", "{\"error\":\"Invalid Sektor (1-15) or Block(0-2)\"}");
     isBusy = false;
     return;
   }
